@@ -84,17 +84,21 @@ function Body(props: BodyProps) {
                 activeTab={state.activeTab || 'Filter'}
                 onSwitchTab={(tab) => setState({activeTab: tab})}
                 tabs={{
+                    'CBMode': (
+                        <MoreSettings data={props.data} actions={props.actions} tab = {props.tab} />
+                    ),
                     'Filter': (
                         <FilterSettings data={props.data} actions={props.actions} tab={props.tab} />
-                    ),
-                    'Site list': (
-                        <SiteListSettings data={props.data} actions={props.actions} isFocused={state.activeTab === 'Site list'} />
                     ),
                     'More': (
                         <MoreSettings data={props.data} actions={props.actions} tab={props.tab} />
                     ),
+                    'Site list': (
+                        <SiteListSettings data={props.data} actions={props.actions} isFocused={state.activeTab === 'Site list'} />
+                    ),
                 }}
                 tabLabels={{
+                    'CBMode': getLocalMessage('filter'),
                     'Filter': getLocalMessage('filter'),
                     'Site list': getLocalMessage('site_list'),
                     'More': getLocalMessage('more'),
